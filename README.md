@@ -6,7 +6,7 @@ This folder contains automation tests written for the [LambdaTest](https://ecomm
 
 The goal of this project is to **practice and master automation test writing skills** using tools such as:
 
-- [Playwright](https://playwright.dev/)
+- Playwright
 - JavaScript / TypeScript
 - Test data management
 - Page Object Model (POM)
