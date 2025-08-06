@@ -14,8 +14,8 @@ The goal of this project is to **practice and master automation test writing ski
 
 ## 📁 Folder Structure
 
-- **LoginTests/** – tests for login functionality and field validation
-- **TBD/** – other features to be tested
+- **LoginTests** – tests for login functionality and field validation
+- **TBD** – other features to be tested
 
 ##  🔐 Note
 
