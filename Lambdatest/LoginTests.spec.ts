@@ -12,36 +12,50 @@ function getLoginElements(page: Page) {
   return {
     emailField: page.locator('#input-email'),
     passwordField: page.locator('#input-password'),
-    submitButton: page.locator('button[type="submit"]'),};}
+    loginButton: page.locator('input[type="submit"][value="Login"]'),
+    myAccount: page.locator('a.nav-link.dropdown-toggle:has-text("My account")'),
+    loginLink: page.locator('a.dropdown-item:has-text("Login")')};}
 
   test('Test 1: Login Positive - email', async ({ page }) => {
   console.log('Running Login Positive - email test');
   await page.goto(baseUrl);
-  const { emailField, passwordField, submitButton} = getLoginElements(page);
+  const { myAccount} = getLoginElements(page);
+  await myAccount.hover();
+  const { loginLink} = getLoginElements(page);
+  await loginLink.click();
+  const { emailField, passwordField, loginButton} = getLoginElements(page);
   await emailField.fill(testData.emailAddress);
   await passwordField.fill(testData.password);
-  await submitButton.click();
+  await loginButton.click();
   await expect(page).toHaveURL('https://ecommerce-playground.lambdatest.io/index.php?route=account/account');});
 
   test('Test 2: Login Negative - wrong email', async ({ page }) => {
   console.log('Running Login Negative - wrong email test');
   await page.goto(baseUrl);
-  const { emailField, passwordField, submitButton} = getLoginElements(page);
+  const { myAccount} = getLoginElements(page);
+  await myAccount.hover();
+  const { loginLink} = getLoginElements(page);
+  await loginLink.click();
+  const { emailField, passwordField, loginButton} = getLoginElements(page);
   await emailField.fill(testData.wrongEmail);
   await passwordField.fill(testData.password);
-  await submitButton.click();
+  await loginButton.click();
   await expect(page).toHaveURL('https://ecommerce-playground.lambdatest.io/index.php?route=account/login');
   await expect(page.getByText('No match for E-Mail Address and/or Password.', { exact: false })).toBeVisible();});
 
   test('Test 3: Login Negative - 5 x wrong password', async ({ page }) => {
   console.log('Running Login Negative - 5 x wrong password test');
   await page.goto(baseUrl);
-  const { emailField, passwordField, submitButton} = getLoginElements(page);
-  for (let i = 1; i <= 5; i++) {
+  const { myAccount} = getLoginElements(page);
+  await myAccount.hover();
+  const { loginLink} = getLoginElements(page);
+  await loginLink.click();
+  const { emailField, passwordField, loginButton} = getLoginElements(page);
+  for (let i = 1; i <= 6; i++) {
   await emailField.fill(testData.blockedUser);
   await passwordField.fill(testData.wrongPassword(i));
-  await submitButton.click();
-  if (i<5){
+  await loginButton.click();
+  if (i<6){
   await expect(page.getByText('No match for E-Mail Address and/or Password.', { exact: false })).toBeVisible()
   console.log(`Login attempt #${i} failed`);}
   else {
