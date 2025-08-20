@@ -3,7 +3,7 @@ const baseUrl = 'https://ecommerce-playground.lambdatest.io';
 const testData = {
     firstName: 'Teemo',
     lastName: 'Yordle',
-    email: 'teemoscout5@abc.com',
+    email: 'teemoscout6@abc.com',
     telephone: '1234567890',
     password: 'TL$3mTf8*',};
 
@@ -44,4 +44,5 @@ test.only('New user registration test', async ({ page }) => {
   await page.getByRole('link', { name: 'Continue' }).click();
   await expect(page).toHaveURL(
     'https://ecommerce-playground.lambdatest.io/index.php?route=account/account');
+
 });
