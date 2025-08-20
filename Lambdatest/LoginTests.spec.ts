@@ -4,7 +4,7 @@ const baseUrl = 'https://ecommerce-playground.lambdatest.io';
 const testData = {
 emailAddress: 'teemoscout1@abc.com',
 password: 'G7k@z!pQ',
-wrongEmail: 'wronguser1@abc.com',
+wrongEmail: 'test123@abc.com',
 blockedUser: 'LuxCrownguard1@abc.com',
 wrongPassword: (i: number) => `wrongpassword${i}`,};
 
