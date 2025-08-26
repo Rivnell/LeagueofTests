@@ -1,9 +1,14 @@
 import { test, expect } from '@playwright/test';
 const baseUrl = 'https://ecommerce-playground.lambdatest.io';
+
+//Generates random name for user registration
+function randomString(length = 6) {
+  return Math.random().toString(36).substring(2, 2 + length);}
+
 const testData = {
-    firstName: 'Teemo',
+    firstName: `Teemo_${randomString()}`,
     lastName: 'Yordle',
-    email: 'teemoscout6@abc.com',
+    email: `teemo_${randomString()}@test.com`,
     telephone: '1234567890',
     password: 'TL$3mTf8*',};
 
@@ -19,9 +24,8 @@ const testData = {
             continueButton: page.locator('input[type="submit"][value="Continue"]'),
             myAccount: page.locator('a.nav-link.dropdown-toggle:has-text("My account")'),
             registerLink: page.locator('a.dropdown-item:has-text("Register")'),
-        };
-    }
-test.only('New user registration test', async ({ page }) => {
+        };};
+test ('New user registration test', async ({ page }) => {
   console.log('Running new user registration test');
   await page.goto(baseUrl);
   await registerAccount(page).myAccount.hover();
@@ -44,5 +48,4 @@ test.only('New user registration test', async ({ page }) => {
   await page.getByRole('link', { name: 'Continue' }).click();
   await expect(page).toHaveURL(
     'https://ecommerce-playground.lambdatest.io/index.php?route=account/account');
-
 });
