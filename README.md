@@ -14,6 +14,14 @@ The goal of this project is to **practice and master automation test writing ski
 
 ## 📁 Folder Structure
 
+**PageObjects**:
+- **Checkout**
+- **HomePage**
+- **LoginPage**
+- **POManager**
+- **cfgE2E**
+
+ **TESTS**:
 - **LoginTests** – tests for login functionality and field validation
 - **AddingComment** – adding new comment to the newest article
 - **NewUserRegistration** – registering new user
