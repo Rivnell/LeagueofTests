@@ -1,1 +1,1 @@
-New folder
+Folder for all tests.
