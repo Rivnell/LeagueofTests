@@ -1,1 +1,1 @@
-New readme
+Page Objects files are stored here.
