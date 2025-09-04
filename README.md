@@ -15,7 +15,9 @@ The goal of this project is to **practice and master automation test writing ski
 ## 📁 Folder Structure
 
 - **LoginTests** – tests for login functionality and field validation
-- **TBD** – other features to be tested
+- **AddingComment** – adding new comment to the newest article
+- **NewUserRegistration** – registering new user
+- **E2E-PlacingOrder** – test for end-to-end order placement
 
 ##  🔐 Note
 
